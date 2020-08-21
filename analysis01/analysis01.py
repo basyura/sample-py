@@ -14,6 +14,7 @@ virginica = iris[iris["Name"] == "Iris-virginica"]
 # 品種ごとの平均値
 print(iris.groupby("Name").mean())
 
+
 plt.figure()
 # 品種全てでグラフ化
 # plt.hist(iris["SepalLength"])
@@ -29,7 +30,6 @@ data = [setosa["SepalLength"],
 plt.figure()
 plt.boxplot(data, sym="k.")
 plt.xlabel("Name")
-plt.ylabel("SepalLength")
-ax = plt.gca()
+plt.ylabel("SepalLength") ax = plt.gca()
 plt.setp(ax, xticklabels=["setosa", "versicolor", "virginica"])
 plt.show()

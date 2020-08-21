@@ -3,6 +3,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import pyper
 from sklearn import linear_model
 
 # データ全体をまとめる
@@ -16,6 +17,12 @@ X = setosa[["SepalLength", "PetalLength", "PetalWidth"]]
 Y = setosa[["SepalWidth"]]
 LinearRegr.fit(X, Y)
 print(LinearRegr.score(X, Y))  # 決定係数
+
+r = pyper.R(use_pandas='True')
+r.assign('data', iris)  # pandas で読み込んだデータを R に渡す
+# 重回帰分析を行う
+r('rlm <- lm(Sepal.Width ~ Sepal.Length+Petal.Length+Petal.Width,data=iris)')
+print(r('summary(rlm)'))  # 分析結果の出力
 
 #plt.scatter(X, Y, color="black")
 #
