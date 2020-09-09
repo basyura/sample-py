@@ -30,6 +30,8 @@ data = [setosa["SepalLength"],
 plt.figure()
 plt.boxplot(data, sym="k.")
 plt.xlabel("Name")
-plt.ylabel("SepalLength") ax = plt.gca()
+plt.ylabel("SepalLength")
+ax = plt.gca()
 plt.setp(ax, xticklabels=["setosa", "versicolor", "virginica"])
 plt.show()
+
